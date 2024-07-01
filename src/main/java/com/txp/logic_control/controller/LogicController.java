@@ -20,6 +20,8 @@ public class LogicController {
     public ResponseEntity<ResponseAdbDto> question(@RequestBody RequestAdbDto requestAdbDto){
         ResponseAdbDto responseAdbDto = new ResponseAdbDto();
         responseAdbDto.setAdbCommand("adb command");
+        responseAdbDto.setToMq(true);
+        responseAdbDto.setThreadSleepTime(10000);
         try{
             log.info("接收到请求:{}", JSON.toJSONString(requestAdbDto));
             Thread.sleep(5000);
