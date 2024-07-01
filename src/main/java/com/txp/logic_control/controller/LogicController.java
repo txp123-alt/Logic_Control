@@ -24,6 +24,11 @@ public class LogicController {
         responseAdbDto.setThreadSleepTime(10000);
         try{
             log.info("接收到请求:{}", JSON.toJSONString(requestAdbDto));
+            //判断当前请求是获取点击坐的，还是查询坐标点点击完成后的操作
+            //1、获取坐标点的逻辑
+
+            //2、查询下一步执行动作的逻辑
+
             Thread.sleep(5000);
             responseAdbDto.setCode(HttpStatus.OK.value());
         }catch (Exception e){
