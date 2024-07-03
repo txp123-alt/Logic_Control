@@ -1,6 +1,7 @@
 package com.txp.logic_control;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.txp.logic_control.domain.RequestAdb;
 import com.txp.logic_control.domain.dto.user;
 import com.txp.logic_control.mapper.UserMapper;
@@ -44,7 +45,10 @@ class LogicControlApplicationTests {
 
     @Test
     void testMybatisPlus(){
-        user user = userMapper.selectById(1);
+        //user user = userMapper.selectById(1);
+        QueryWrapper<user> userQueryWrapper = new QueryWrapper<>();
+        userQueryWrapper.eq("username","firestUser").eq("password","Tk@199400");
+        user user = userMapper.selectOne(userQueryWrapper);
         log.info(JSON.toJSONString(user));
     }
 
